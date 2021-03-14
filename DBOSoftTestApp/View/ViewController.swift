@@ -116,9 +116,7 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource,
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == "" {
-            return
-        }
+        if searchBar.text == "" { return }
         self.requestFoundArticles(urlString: "https://newsapi.org/v2/everything?q=\(searchText)&apiKey=4495630cd6554dd6beb7903b040611e3")
     }
     

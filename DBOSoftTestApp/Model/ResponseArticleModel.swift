@@ -60,9 +60,9 @@ class ResponseArticleModel {
         }
     }
     
-    func requestFoundArticles(urlString: String, completion: @escaping (ResponseModel?) -> Void) {
+    func requestFoundArticles(_ searchText: String, completion: @escaping (ResponseModel?) -> Void) {
+        let urlString = StringPicker.searchString(searchText)
         networkDataFetch.dataAnswerFetch(urlString: urlString) {(response, error) in
-            print(response)
             completion(response)
         }
     }

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let networkDataFetcher = NetworkDataFetcher(networkService: networkService)
         let imageDownloadService = ImageDownloadService()
         let responseArticleModel = ResponseArticleModel(networkDataFetch: networkDataFetcher, imageDownloadService: imageDownloadService)
-        let rootVC = ViewController(responseArticleModel: responseArticleModel)
+        let rootVC = MainViewController(responseArticleModel: responseArticleModel)
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = UINavigationController(rootViewController: rootVC)

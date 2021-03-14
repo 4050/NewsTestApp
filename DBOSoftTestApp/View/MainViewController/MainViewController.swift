@@ -9,7 +9,7 @@ import UIKit
 import SafariServices
 
 
-class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let tableView = UITableView()
@@ -68,8 +68,8 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource,
         })
     }
     
-    private func requestFoundArticles(urlString: String) {
-        responseArticleModel.requestFoundArticles(urlString: urlString, completion: { (searchResults) in
+    private func requestFoundArticles(_ searchText: String) {
+        responseArticleModel.requestFoundArticles(searchText, completion: { (searchResults) in
             self.requestArticle = searchResults!.articles
         })
     }
@@ -119,7 +119,7 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource,
         if searchBar.text == "" {
             return
         }
-        self.requestFoundArticles(urlString: "https://newsapi.org/v2/everything?q=\(searchText)&apiKey=4495630cd6554dd6beb7903b040611e3")
+        self.requestFoundArticles(searchText)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

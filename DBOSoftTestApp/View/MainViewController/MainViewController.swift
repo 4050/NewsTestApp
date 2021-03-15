@@ -81,6 +81,7 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         present(vc, animated: true)
     }
     
+    
     private func setImageToImageView(cell: ArticleTableViewCell, urlString: String) {
         cell.articleImageView.isHidden = true
         cell.spinnerAnimation(shouldSpin: true)
@@ -91,12 +92,10 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                     cell.spinnerAnimation(shouldSpin: false)
                     cell.articleImageView.isHidden = false
                 }
-            } else {
-                print("Error loading image");
             }
         }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         requestArticle.count
     }
@@ -106,6 +105,7 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let article = requestArticle[indexPath.row]
         cell.labelTitle.text = article.title
         cell.labelDescription.text = article.articleDescription
+        cell.articleImageView.isHidden = true
         setImageToImageView(cell: cell, urlString: article.urlToImage ?? Constants.imageNotFoundURL)
         return cell
     }
@@ -116,9 +116,7 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == "" {
-            return
-        }
+        if searchBar.text == "" { return }
         self.requestFoundArticles(searchText)
     }
     

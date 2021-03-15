@@ -122,16 +122,11 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         tableView.isHidden = true
-        searchBar.showsCancelButton = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         tableView.isHidden = false
         tableView.reloadData()
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

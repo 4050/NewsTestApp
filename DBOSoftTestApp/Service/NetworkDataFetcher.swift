@@ -13,9 +13,8 @@ protocol DataFetcher {
 }
 
 class NetworkDataFetcher: DataFetcher {
-
     private let networkService: Networking
-
+    
     init(networkService: NetworkService) {
         self.networkService = networkService
     }
